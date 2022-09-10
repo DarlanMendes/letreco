@@ -1,0 +1,32 @@
+main{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:600px;
+    width:600px;
+    margin: 40px auto;
+    background-color: #ccc;
+}
+.linhas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height:80px;
+    width:600px;
+}
+.inputLetra{
+    text-align: center;
+    height:60px;
+    width:50px;
+    font-size: 20px;
+}
+#botaoSubmeter{
+    background-color: green;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    color: white;
+}
