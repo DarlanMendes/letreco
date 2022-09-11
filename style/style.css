@@ -1,26 +1,45 @@
+*{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    height:80px;
+    margin: 0;
+    background-color: #ccc;
+    border-bottom: 1px solid rgb(0,0,0,0.3);
+}
 main{
     display:flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height:600px;
-    width:600px;
-    margin: 40px auto;
+    height:500px;
+    width:500px;
+    margin: 10px auto;
     background-color: #ccc;
+    border-radius: 10px;
+    border: 1px solid rgb(0,0,0,0.5);
 }
 .linhas{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     height:80px;
     width:600px;
 }
 .inputLetra{
     text-align: center;
-    height:60px;
-    width:50px;
+    height:50px;
+    width:40px;
     font-size: 20px;
+    border-radius: 3px;
+    text-transform: uppercase;
 }
 #botaoSubmeter{
     background-color: green;
@@ -29,4 +48,16 @@ main{
     padding: 10px 20px;
     margin: 10px auto;
     color: white;
+}
+#resultado{
+    font-size: larger;
+    height:50px;
+    width: 560px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ccc;
+    color:black;
+    border-radius: 5px;
+    border: 1px solid rgb(0,0,0,0.5);
+   
 }

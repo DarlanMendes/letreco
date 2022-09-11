@@ -4,6 +4,7 @@ let letras = [];
 let letrasA = [];
 let letrasP = [];
 let palavraDigitada;
+let resultadoArea=document.getElementById("resultado");
 const submmit = () => {
     letras[0] = document.getElementById(`${linhaSelecionada}` + "1").value.toLowerCase();
     letras[1] = document.getElementById(`${linhaSelecionada}` + "2").value.toLowerCase();
@@ -34,15 +35,17 @@ const submmit = () => {
 
     }
     if (palavraDigitada === palavraDoDia) {
-        document.getElementById("resultado").innerHTML = "<h1>Você acertou!! A palavra do dia é :" + `${palavraDoDia}` + "<h1>";
-
+        
+        resultadoArea.innerHTML = "<div>Você acertou!! A palavra do dia é :" + `${palavraDoDia.toUpperCase()}` + "<h1>";
+        resultadoArea.style.backgroundColor="green";
+        resultadoArea.style.color="white"
     } else {
         if (linhaSelecionada < 5) {
             ++linhaSelecionada
-            document.getElementById("resultado").innerHTML = "<h1> Você tem mais " + `${6 - linhaSelecionada}` + " tentativas<h1>";
+            resultadoArea.innerHTML = "<div> Você tem mais " + `${6 - linhaSelecionada}` + " tentativas<div>";
             ativarProximaLinha()
         } else {
-            document.getElementById("resultado").innerHTML = "<h1>Boa tentativa<h1>";
+            resultadoArea.innerHTML = "<div>Boa tentativa<div>";
         }
 
     }
