@@ -119,5 +119,6 @@ function detectBrowser() {
     } else {
         browserName = "Unknown";
     }
+    alert(browserName)
     console.log('navegador é:',browserName);
 }
