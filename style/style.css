@@ -10,6 +10,7 @@ header{
     justify-content: center;
     height:80px;
     margin: 0;
+    font-size: 40px;
     background-color: #ccc;
     border-bottom: 1px solid rgb(0,0,0,0.3);
 }
@@ -18,8 +19,9 @@ main{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height:500px;
-    width:500px;
+    height:350px;
+    width:90vw;
+    max-width: 500px;
     margin: 10px auto;
     background-color: #ccc;
     border-radius: 10px;
@@ -30,13 +32,13 @@ main{
     justify-content: center;
     align-items: center;
     gap: 8px;
-    height:80px;
+    height:50px;
     width:600px;
 }
 .inputLetra{
     text-align: center;
-    height:50px;
-    width:40px;
+    height:35px;
+    width:35px;
     font-size: 20px;
     border-radius: 3px;
     text-transform: uppercase;
@@ -50,10 +52,19 @@ main{
     margin: 10px auto;
     color: white;
 }
+#botaoBackspace{
+    background-color: red;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px auto;
+    color: white;
+}
 #resultado{
     font-size: larger;
-    height:50px;
-    width: 560px;
+    height:30px;
+    width: 80vw;
+    max-width: 500px;
     margin: 0 auto;
     padding: 20px;
     background-color: #ccc;
@@ -61,4 +72,37 @@ main{
     border-radius: 5px;
     border: 1px solid rgb(0,0,0,0.5);
    
+}
+.botaoLetra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height:30px;
+    width:30px;
+    font-size: 15px;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+#teclado{
+    display: flex;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:5px;
+}
+.linha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap:5px;
+}
+#botoes--linha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

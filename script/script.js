@@ -9,24 +9,41 @@ let palavraDigitadaComparada;
 let resultadoArea = document.getElementById("resultado");
 let inputInicial = document
 
-detectBrowser();
+
 
 inputInicial.addEventListener("keyup", (e) => {
+    let letraTeclado = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'ç', 'z', 'x', 'c', 'v', 'b', 'n', 'm']
+    for (let l = 0; l < letraTeclado.length; l++) {
+        if (letraTeclado[l] === e.key) {
+            digitarLetra(e.key);
+        }
+    }
+    if (e.key === 'Enter' || e.key === 'Backspace') {
+        digitarLetra(e.key);
+    }
+
+
+})
+const backspace = () => {
+    let valorInputAtual = document.getElementById(`${linhaSelecionada}` + `${colunaSelecionada}`);
+    valorInputAtual.value = '';
+    colunaSelecionada > 1 && colunaSelecionada--;
+}
+const digitarLetra = (valorDigitado) => {
     let valorInputAtual = document.getElementById(`${linhaSelecionada}` + `${colunaSelecionada}`);
 
-    if (e.key === 'Enter') {
+    if (valorDigitado === 'Enter') {
         submmit();
 
     } else {
-        if (e.key === 'Backspace') {
+        if (valorDigitado === 'Backspace') {
 
-            valorInputAtual.value = '';
-            colunaSelecionada > 1 && colunaSelecionada--;
+            backspace();
 
         } else {
             if (valorInputAtual.value === '' && colunaSelecionada <= 5) {
 
-                valorInputAtual.value = e.key
+                valorInputAtual.value = valorDigitado
             }
             if (colunaSelecionada < 5) {
                 colunaSelecionada++
@@ -36,9 +53,7 @@ inputInicial.addEventListener("keyup", (e) => {
         }
 
     }
-
-
-})
+}
 
 const submmit = () => {
     if (linhaSelecionada < 6) {
@@ -96,29 +111,4 @@ const ativarProximaLinha = () => {
         letrasP[col].disabled = false;
     })
 
-}
-function detectBrowser() {
-
-    let userAgent = navigator.userAgent;
-    let browserName;
-
-    if (userAgent.match(/chrome|chromium|crios/i)) {
-        browserName = "Chrome";
-    } else if (userAgent.match(/firefox|fxios/i)) {
-        browserName = "Firefox";
-    } else if (userAgent.match(/safari/i)) {
-        browserName = "Safari";
-    } else if (userAgent.match(/opr\//i)) {
-        browserName = "Opera";
-    } else if (userAgent.match(/edg/i)) {
-        browserName = "Edge";
-    } else if (userAgent.match(/android/i)) {
-        browserName = "Android";
-    } else if (userAgent.match(/iphone/i)) {
-        browserName = "iPhone";
-    } else {
-        browserName = "Unknown";
-    }
-    alert(browserName)
-    console.log('navegador é:',browserName);
 }
