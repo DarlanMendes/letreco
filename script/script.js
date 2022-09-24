@@ -1,6 +1,7 @@
+let palavras = ['sorte', 'termo', 'nobre', 'assim', 'morte', 'vidas', 'audaz']
 let linhaSelecionada = 1;
 let colunaSelecionada = 1;
-let palavraDoDia = ['s', 'o', 'r', 't', 'e'];
+let palavraDoDia = palavras[Math.floor(Math.random() * palavras.length)].split('')
 let letras = ['', '', '', '', ''];
 let letrasA = [];
 let letrasP = [];
@@ -8,6 +9,7 @@ let palavraDigitada;
 let palavraDigitadaComparada;
 let resultadoArea = document.getElementById("resultado");
 let inputInicial = document
+let podeDigitar = true;
 
 
 
@@ -30,29 +32,33 @@ const backspace = () => {
     colunaSelecionada > 1 && colunaSelecionada--;
 }
 const digitarLetra = (valorDigitado) => {
-    let valorInputAtual = document.getElementById(`${linhaSelecionada}` + `${colunaSelecionada}`);
+    if (podeDigitar) {
+        let valorInputAtual = document.getElementById(`${linhaSelecionada}` + `${colunaSelecionada}`);
 
-    if (valorDigitado === 'Enter') {
-        submmit();
-
-    } else {
-        if (valorDigitado === 'Backspace') {
-
-            backspace();
+        if (valorDigitado === 'Enter') {
+            submmit();
 
         } else {
-            if (valorInputAtual.value === '' && colunaSelecionada <= 5) {
+            if (valorDigitado === 'Backspace') {
 
-                valorInputAtual.value = valorDigitado
-            }
-            if (colunaSelecionada < 5) {
-                colunaSelecionada++
+                backspace();
+
+            } else {
+                if (valorInputAtual.value === '' && colunaSelecionada <= 5) {
+
+                    valorInputAtual.value = valorDigitado
+                }
+                if (colunaSelecionada < 5) {
+                    colunaSelecionada++
+                }
+
+                //console.log(e)
             }
 
-            //console.log(e)
         }
 
     }
+
 }
 
 const submmit = () => {
@@ -81,13 +87,14 @@ const submmit = () => {
 
             resultadoArea.innerHTML = "<div>Você acertou!! A palavra do dia é :" + `${palavraDoDiaComparada.toUpperCase()}` + "<h1>";
             resultadoArea.style.backgroundColor = "green";
-            resultadoArea.style.color = "white"
+            resultadoArea.style.color = "white";
+            podeDigitar=false;
         } else {
             if (linhaSelecionada < 5) {
                 ++linhaSelecionada;
                 colunaSelecionada = 1;
                 if (6 - linhaSelecionada > 1) {
-                    resultadoArea.innerHTML = "<div> Você tem mais " + `${6 - linhaSelecionada}` + " tentativas<div>"
+                    resultadoArea.innerHTML = "<div> Você tem mais " + `${6 - linhaSelecionada}` + " tentativas<div>";
                 } else {
                     resultadoArea.innerHTML = "<div> Você tem mais 1 tentativa<div>"
                 }
@@ -95,6 +102,7 @@ const submmit = () => {
                 ativarProximaLinha();
             } else {
                 resultadoArea.innerHTML = "<div>Boa tentativa<div>";
+                podeDigitar=false;
             }
 
         }
